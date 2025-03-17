@@ -14,19 +14,20 @@ function draw() {
     plane.move();
     
   }
-  if (planes.length < 5) {
-    planes.push(new plane(random(-1000,0), random(50, 300)));
+  if (num < 5) {
+    planes.push(new plane(random(-1000,0), random(50, 300),random(200,600),random(10000,100000)));
     num++;
   }
   
   plane.y+=random(-50,50)
 }
 class plane {
-    constructor(x, y, speed) {
+    constructor(x, y,t,v) {
     this.x = x;
     this.y=y
-    this.t = random(200,600) ;
+    this.t = t ;
     this.speed = random(5, 7);
+      this.v=v
    
   }
    show() {
@@ -60,9 +61,6 @@ arc(this.x-130, this.y-20, 40, 50, PI, 0)
   }
   move(){
     this.x += this.speed
-    this.y=this.t* noise(0.01 * frameCount + 1000000)
-   if (this.x > width+80) {
-     this.x = -200
-    }
+    this.y=this.t* noise(0.01 * frameCount + this.v)
   }
 }
