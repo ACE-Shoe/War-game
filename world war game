@@ -14,7 +14,7 @@ function draw() {
     plane.move();
     
   }
-  if (num < 5) {
+  if (planes.length < 5) {
     planes.push(new plane(random(-1000,0), random(50, 300)));
     num++;
   }
@@ -61,5 +61,8 @@ arc(this.x-130, this.y-20, 40, 50, PI, 0)
   move(){
     this.x += this.speed
     this.y=this.t* noise(0.01 * frameCount + 1000000)
+   if (this.x > width+80) {
+     this.x = -200
+    }
   }
 }
