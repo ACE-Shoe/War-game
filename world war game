@@ -1,5 +1,6 @@
 let planes = []
 let num = 0
+let yv=0
 function setup() {
   createCanvas(800, 400);
   
@@ -12,9 +13,11 @@ function draw() {
     plane.move();
   }
   if (num < 5) {
-    planes.push(new plane(random(-800,0), random(50, 300)));
+    planes.push(new plane(random(-800,0),y, random(50, 300)));
     num++;
   }
+  
+   plane. yv+=random(-50,50)
 }
 class plane {
     constructor(x, y, speed) {
