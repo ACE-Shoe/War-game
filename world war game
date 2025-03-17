@@ -15,7 +15,7 @@ function draw() {
     
   }
   if (num < 5) {
-    planes.push(new plane(random(-800,0), random(50, 300)));
+    planes.push(new plane(random(-1000,0), random(50, 300)));
     num++;
   }
   
