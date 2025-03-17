@@ -1,6 +1,7 @@
 let planes = []
 let num = 0
 let yv=0
+let ben = { x: 600, y: 350, wide: 60, tall: 200 };
 function setup() {
   createCanvas(800, 400);
   
@@ -8,11 +9,19 @@ function setup() {
 
 function draw() {
   background(220);
- 
+   //big ben
+  noStroke()
+  fill("tan")
+  rect(ben.x,ben.y, ben.wide, ben.tall)
+   triangle(600, 120, 565, 180, 635, 180)
+  rectMode(CENTER)
+  square(600,220, 80)
+  fill("WhitE")
+  circle(600, 220, 75)
   for (let plane of planes) {
     plane.show();
     plane.move();
-    
+
   }
   if (num < 5) {
     planes.push(new plane(random(-1000,0), random(50, 300),random(200,600),random(10000,100000)));
