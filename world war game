@@ -10,7 +10,10 @@ function setup() {
 function draw() {
   background(220);
 
-rect(150,300,50,200)
+  noStroke()
+  fill('grey')
+  //tower
+  rect(150,300,50,200)
      rect(325,300,50,200)
     triangle(150,300,175,250,200,300)
   triangle(325,300,350,250,375,300)
@@ -20,6 +23,7 @@ rect(150,300,50,200)
     triangle(150,300,200,265,200,300)
   rect(175,300,200,25)
   rect(175,350,200,12.5)
+
 
 
 
