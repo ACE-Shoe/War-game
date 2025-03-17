@@ -1,0 +1,58 @@
+let planes = []
+let num = 0
+function setup() {
+  createCanvas(800, 400);
+  
+}
+
+function draw() {
+  background(220);
+  for (let plane of planes) {
+    plane.show();
+    plane.move();
+  }
+  if (num < 5) {
+    planes.push(new plane(random(-800,0), random(50, 300)));
+    num++;
+  }
+}
+class plane {
+    constructor(x, y, speed) {
+    this.x = x;
+    this.y = y;
+    this.speed = random(5, 7);
+   
+  }
+   show() {
+     //window
+          stroke(5)
+     strokeWeight(2)
+     line(this.x-30, this.y - 35, this.x+10, this.y-35)
+     line(this.x+10, this.y-35, this.x+40, this.y)
+noStroke()
+    fill("#4F4946");
+     //body of plane
+   ellipse(this.x,this.y,130,45)
+     triangle(this.x-30, this.y - 35, this.x-20, this.y +22, this.x-150, this.y-20)
+     
+     //tail
+arc(this.x-130, this.y-20, 40, 50, PI, 0)
+
+     triangle(this.x -150 ,this.y-20, this.x,this.y,this.x-50, this.y+15 )
+//tip
+  fill("red")
+     stroke("red")
+     strokeWeight(5)
+       strokeJoin(ROUND);
+     triangle(this.x+50, this.y-12, this.x+50, this. y+12, this.x + 80, this.y)
+     // propeller
+ 
+  fill(200);
+  ellipse(this.x+75, this.y, 10, 40);
+  fill(255, 0, 0);
+  ellipse(this.x+75, this.y, 10, 10);
+  }
+  move(){
+    this.x += this.speed
+  }
+}
