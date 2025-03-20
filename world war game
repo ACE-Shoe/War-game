@@ -39,23 +39,23 @@ function draw() {
   for (let plane of planes) {
     plane.show();
     plane.move();
-
+  
   }
-  if (num < 5) {
-    planes.push(new plane(random(-1000,0), random(50, 300),random(200,600),random(10000,100000)));
+  if (num < 10) {
+    planes.push(new plane(random(-2000,0), random(50, 300),random(200,600),random(10000,100000)));
     num++;
   }
   
   plane.y+=random(-50,50)
 }
 class plane {
-    constructor(x, y,t,v) {
+    constructor(x, y,t,v,on) {
     this.x = x;
     this.y=y
     this.t = t ;
-    this.speed = random(5, 7);
+    this.speed = random(5, 9);
       this.v=v
-   
+   this.on=true
   }
    show() {
      //window
@@ -89,5 +89,10 @@ arc(this.x-130, this.y-20, 40, 50, PI, 0)
   move(){
     this.x += this.speed
     this.y=this.t* noise(0.01 * frameCount + this.v)
+    if(this.x>width&this.on==true){
+      num--
+      this.on=false
+    }
   }
+  
 }
